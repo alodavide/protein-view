@@ -3,7 +3,9 @@
   "description": "view for protein in glyconnect",
   "main": "protein-view.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-flex-layout": "^1.3.7",
+    "paper-card": "PolymerElements/paper-card#^1.1.6"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

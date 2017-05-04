@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 
 <!--
 `protein-view`
@@ -9,14 +10,19 @@ view for protein in glyconnect
 
 <dom-module id="protein-view">
   <template>
-    <style>
+    <style include="iron-flex">
       :host {
         display: block;
       }
     </style>
     <div>
-      <h1>IMMUNOGLOBULIN GAMMA-1</h1>
-      <h3>Accession: <a href="http://uniprot.org/uniprot/P01868">P01868</a></h3>
+      <h1>Saposin B</h1>
+      <h3>Accession: <a href="http://uniprot.org/uniprot/P07602">P07602</a></h3>
+
+      <div class="layout wrap">
+        <paper-card heading="Site: N-215" image="./img/1521.png">
+        </paper-card>
+      </div>
     </div>
   </template>
 
