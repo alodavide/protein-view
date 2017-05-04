@@ -1,0 +1,37 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`protein-view`
+view for protein in glyconnect
+
+@demo demo/index.html
+-->
+
+<dom-module id="protein-view">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>
+      <h1>IMMUNOGLOBULIN GAMMA-1</h1>
+      <h3>Accession: <a href="http://uniprot.org/uniprot/P01868">P01868</a></h3>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'protein-view',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'protein-view',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
