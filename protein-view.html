@@ -19,14 +19,40 @@ view for protein in glyconnect
       .red {
         background: #eb2011;
         color: white;
+        margin: 10px;
+      }
+      paper-material {
+        margin: 10px;
       }
     </style>
     <div>
       <h1>Prosaposin</h1>
       <h3>Accession: <a href="http://uniprot.org/uniprot/P07602">P07602</a></h3>
-      <paper-material elevation="2" class="flex" style="padding: 10px">
+      <paper-material elevation="2" class="flex" >
         <paper-toolbar>
           <div class="title">Structures </div>
+        </paper-toolbar>
+        <div class="layout wrap">
+          <paper-card image="{{imgsrc}}/1521.png" class="red">
+            <div class="card-content">Site: N-215</div>
+          </paper-card>
+        </div>
+      </paper-material>
+
+      <paper-material elevation="2" class="flex" >
+        <paper-toolbar>
+          <div class="title">Sankey</div>
+        </paper-toolbar>
+        <div class="layout wrap">
+          <paper-card image="{{imgsrc}}/1521.png" class="red">
+            <div class="card-content">Site: N-215</div>
+          </paper-card>
+        </div>
+      </paper-material>
+
+      <paper-material elevation="2" class="flex" >
+        <paper-toolbar>
+          <div class="title">References</div>
         </paper-toolbar>
         <div class="layout wrap">
           <paper-card image="{{imgsrc}}/1521.png" class="red">
