@@ -16,11 +16,11 @@ view for protein in glyconnect
       }
     </style>
     <div>
-      <h1>Saposin B</h1>
+      <h1>Prosaposin</h1>
       <h3>Accession: <a href="http://uniprot.org/uniprot/P07602">P07602</a></h3>
 
       <div class="layout wrap">
-        <paper-card heading="Site: N-215" image="./img/1521.png">
+        <paper-card heading="Site: N-215" image="{{imgsrc}}/1521.png">
         </paper-card>
       </div>
     </div>
@@ -36,6 +36,11 @@ view for protein in glyconnect
           type: String,
           value: 'protein-view',
         },
+        imgsrc: {
+          type: String,
+          value: function() {return this.resolveUrl('./img')
+          }
+        }
       },
 
     });
