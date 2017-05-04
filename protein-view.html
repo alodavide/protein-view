@@ -19,10 +19,7 @@ view for protein in glyconnect
       .red {
         background: #eb2011;
         color: white;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 10px ;
+        margin:10px;
       }
       paper-material {
         margin: 20px;
@@ -51,22 +48,26 @@ view for protein in glyconnect
         </div>
       </paper-material>
 
-      <paper-material elevation="2" class="flex" >
+      <paper-material elevation="2" class="flex" style="background: #eeeeee" >
         <paper-toolbar>
           <div class="title">Sankey</div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card image="{{imgsrc}}/protein_546.png" class="red" elevation="0">
+          <paper-card image="{{imgsrc}}/protein_546.png"  style="margin: 10px;" elevation="0">
           </paper-card>
         </div>
       </paper-material>
 
-      <paper-material elevation="2" class="flex" >
+      <paper-material elevation="2" class="flex" style="background: #eeeeee;">
         <paper-toolbar>
-          <div class="title">References</div>
+          <div class="title">References (1)</div>
         </paper-toolbar>
         <div class="layout wrap">
-          toDo
+          <paper-card heading="Structural study of the oligosaccharide moieties of sphingolipid activator proteins, saposins A, C and D obtained from the spleen of a Gaucher patient." style="margin: 10px;">
+            <div class="card-content">
+              Authors: Ito K, Takahashi N, Takahashi A, Shimada I, Arata Y, O'Brien J, Kishimoto Y.
+            </div>
+          </paper-card>
         </div>
       </paper-material>
     </div>
