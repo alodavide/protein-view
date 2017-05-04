@@ -40,9 +40,14 @@ view for protein in glyconnect
           <div class="title">Structures </div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card image="{{imgsrc}}/1521.png" class="red">
+          <paper-card image="{{imgsrc}}/2253.png" class="red">
             <div class="card-content">Site: N-215</div>
           </paper-card>
+          <template is="dom-repeat" items="{{pictures}}">
+            <paper-card image="{{imgsrc}}/{{item}}.png" class="red">
+              <div class="card-content">Site: Unknown</div>
+            </paper-card>
+          </template>
         </div>
       </paper-material>
 
@@ -73,9 +78,11 @@ view for protein in glyconnect
       is: 'protein-view',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'protein-view',
+        pictures: {
+          type: Array,
+          value: function(){
+            return ['1049','1053','1219','1477','1489','1521','1603','1623','1659','1661'];
+          },
         },
         imgsrc: {
           type: String,
