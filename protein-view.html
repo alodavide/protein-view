@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
-
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <!--
 `protein-view`
 view for protein in glyconnect
@@ -14,16 +15,23 @@ view for protein in glyconnect
       :host {
         display: block;
       }
+
+      .red {
+        background: #eb2011;
+        color: white;
+      }
     </style>
     <div>
       <h1>Prosaposin</h1>
       <h3>Accession: <a href="http://uniprot.org/uniprot/P07602">P07602</a></h3>
-
-      <div class="layout wrap">
-        <paper-card image="{{imgsrc}}/1521.png">
-          <div class="card-content">Site: N-215</div>
-        </paper-card>
-      </div>
+      <paper-material elevation="2" class="flex">
+        <paper-toolbar> Structures </paper-toolbar>
+        <div class="layout wrap">
+          <paper-card image="{{imgsrc}}/1521.png" class="red">
+            <div class="card-content">Site: N-215</div>
+          </paper-card>
+        </div>
+      </paper-material>
     </div>
   </template>
 
