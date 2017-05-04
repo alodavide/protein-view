@@ -29,6 +29,16 @@ view for protein in glyconnect
       paper-toolbar{
         margin-bottom: 10px
       }
+
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+
     </style>
     <div>
       <h1>Prosaposin</h1>
@@ -68,7 +78,7 @@ view for protein in glyconnect
             <div class="card-content">
               Authors: Ito K, Takahashi N, Takahashi A, Shimada I, Arata Y, O'Brien J, Kishimoto Y.
             </div>
-            <paper-button>Go to Pubmed</paper-button>
+            <paper-button class="indigo">Go to Pubmed</paper-button>
           </paper-card>
         </div>
       </paper-material>
