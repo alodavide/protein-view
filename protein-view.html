@@ -100,18 +100,26 @@ view for protein in glyconnect
       is: 'protein-view',
 
       properties: {
+        proteinId: {
+          type: String,
+          reflectToAttribute: true,
+          observer: 'proteinChange'
+        },
         pictures: {
           type: Array,
           value: function(){
             return ['1049','1053','1219','1477','1489','1521','1603','1623','1659','1661'];
-          },
+          }
         },
         imgsrc: {
           type: String,
-          value: function() {return this.resolveUrl('./img')
-          }
+          value: function() {return this.resolveUrl('./img')}
         }
       },
+
+      proteinChange : function(){
+        //add code for refresh the page
+      }
 
     });
   </script>
