@@ -3,6 +3,7 @@
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../glyconnect-sankey/glyconnect-sankey.html">
 <!--
 `protein-view`
 view for protein in glyconnect
@@ -17,7 +18,7 @@ view for protein in glyconnect
         display: block;
       }
 
-      .red {
+      .redCard {
         background: #eb2011;
         color: white;
         margin:10px;
@@ -43,17 +44,17 @@ view for protein in glyconnect
     </style>
     <div>
       <h1>Prosaposin</h1>
-      <h3>Accession: <a href="http://uniprot.org/uniprot/P07602">P07602</a></h3>
+      <h3>Accession: <a href="http://uniprot.org/uniprot/{{uniprotId}}">{{uniprotId}}</a></h3>
       <paper-material elevation="2" class="flex" style="background: #eeeeee">
         <paper-toolbar>
           <div class="title">Structures</div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card image="{{imgsrc}}/2253.png" class="red">
+          <paper-card image="{{imgsrc}}/2253.png" class="redCard">
             <div class="card-content">Site: N-215</div>
           </paper-card>
           <template is="dom-repeat" items="{{pictures}}">
-            <paper-card image="{{imgsrc}}/{{item}}.png" class="red">
+            <paper-card image="{{imgsrc}}/{{item}}.png" class="redCard">
               <div class="card-content">Site: Unknown</div>
             </paper-card>
           </template>
@@ -65,35 +66,38 @@ view for protein in glyconnect
           <div class="title">Associations</div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card image="{{imgsrc}}/protein_546_und.png"  style="margin: 10px;" elevation="0">
-          </paper-card>
+          <glyconnect-sankey sankeyType="protein" structure-id="{{proteinId}}"></glyconnect-sankey>
         </div>
       </paper-material>
 
       <paper-material elevation="2" class="flex" style="background: #eeeeee;">
         <paper-toolbar>
-          <div class="title">References (2)</div>
+          <div class="title">References ({{lenR}})</div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card style="margin: 10px;padding: 10px;width: 300px;">
-            <div class="card-content layout vertical">
-              <h3 style="color: black">Structure of the asparagine-linked sugar chains of porcine kidney and human urine cerebroside sulfate activator protein. (2000)</h3>
-              <div>Faull K, Johnson J, Kim M, To T, Whitelegge J, Stevens R, Fluharty C, Fluharty A</div>
-              <paper-button class="indigo" style="width: 150px;margin-top:12px;">Go to Pubmed</paper-button>
-            </div>
-          </paper-card>
-          <paper-card style="margin: 10px;padding: 10px;width: 300px;">
-            <div class="card-content layout vertical">
-              <h3 style="color: black">Characteristics of asparagine-linked sugar chains of sphingolipid activator protein 1 purified from normal human liver and GM1 gangliosidosis (type 1) liver. (1990)</h3>
-              <div>Yamashita K, Inui K, Totani K, Kochibe N, Furukawa M, Okada S</div>
-              <paper-button class="indigo" style="width: 150px;margin-top:12px;">Go to Pubmed</paper-button>
-            </div>
-          </paper-card>
+          <template is="dom-repeat" items="[[references]]">
+            <paper-card style="margin: 10px;padding: 10px;width: 400px;">
+              <div class="card-content layout vertical">
+                <h3 style="color: black"> [[item.title]] ([[item.year]])</h3>
+                <div>[[item.authors]]</div>
+                <a href="https://www.ncbi.nlm.nih.gov/pubmed/[[item.pubmed_id]]"> <paper-button class="indigo" style="width: 150px;margin-top:12px;">Go to Pubmed</paper-button></a>
+              </div>
+            </paper-card>
+          </template>
         </div>
       </paper-material>
     </div>
-  </template>
 
+    <iron-ajax
+            id="proteinCall"
+            handle-as="json"
+            method="GET"
+            last-response="{{proteinData}}"
+            on-response="handleResponse"
+    ></iron-ajax>
+
+
+  </template>
   <script>
     Polymer({
 
@@ -117,8 +121,16 @@ view for protein in glyconnect
         }
       },
 
-      proteinChange : function(){
-        //add code for refresh the page
+      proteinChange: function(){
+        var sCall = this.$.proteinCall;
+        //sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.structureId;
+        //sCall.generateRequest();
+      },
+
+      handleResponse: function(){
+        this.uniprotId = this.proteinData.uniprotId; //check with julien data
+        this.references = this.proteinData.references;
+        this.lenR = this.references.length
       }
 
     });
