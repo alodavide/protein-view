@@ -55,7 +55,7 @@ view for protein in glyconnect
           </paper-card>
           <template is="dom-repeat" items="[[structures]]">
             <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png">
-              <div class="card-content">Site: Unknown</div>
+              <div class="card-content">[[item.sites]]</div>
             </paper-card>
           </template>
         </div>
