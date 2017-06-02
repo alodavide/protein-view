@@ -54,8 +54,7 @@ view for protein in glyconnect
             <div class="card-content">Site: N-215</div>
           </paper-card>
           <template is="dom-repeat" items="[[structures]]">
-            <paper-card class="redCard">
-              <iron-image style="width:230px;height:150px" sizing="contain"  src="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png"></iron-image>
+            <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png">
               <div class="card-content">Site: Unknown</div>
             </paper-card>
           </template>
