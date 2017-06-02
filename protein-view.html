@@ -53,8 +53,9 @@ view for protein in glyconnect
           <paper-card image="{{imgsrc}}/2253.png" class="redCard">
             <div class="card-content">Site: N-215</div>
           </paper-card>
-          <template is="dom-repeat" items="{{pictures}}">
-            <paper-card image="{{imgsrc}}/{{item}}.png" class="redCard">
+          <template is="dom-repeat" items="[[structures]]">
+            <paper-card class="redCard">
+              <iron-image style="width:230px;height:150px" sizing="contain"  src="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png"></iron-image>
               <div class="card-content">Site: Unknown</div>
             </paper-card>
           </template>
@@ -123,13 +124,14 @@ view for protein in glyconnect
 
       proteinChange: function(){
         var sCall = this.$.proteinCall;
-        //sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.structureId;
-        //sCall.generateRequest();
+        sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.proteinId;
+        sCall.generateRequest();
       },
 
       handleResponse: function(){
-        this.uniprotId = this.proteinData.uniprotId; //check with julien data
+        this.uniprotId = this.proteinData.uniprot_acc; //check with julien data
         this.references = this.proteinData.references;
+        this.structures = this.proteinData.structures;
         this.lenR = this.references.length
       }
 
