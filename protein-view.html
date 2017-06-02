@@ -44,7 +44,7 @@ view for protein in glyconnect
     </style>
     <div>
       <h1>{{protName}}</h1>
-      <h3>Accession: <a href="http://uniprot.org/uniprot/{{acc.uniprot_acc}}">{{acc.uniprot_acc}}</a></h3>
+      <h3>Accession: <a href="http://uniprot.org/uniprot/{{uniprotId}}">{{uniprotId}}</a></h3>
       <paper-material elevation="2" class="flex" style="background: #eeeeee">
         <paper-toolbar>
           <div class="title">Structures</div>
@@ -129,9 +129,9 @@ view for protein in glyconnect
 
       handleResponse: function(){
         this.acc = this.proteinData.uniprots;
-        // console.log(this.acc);
-        // var uniprotId = this.acc.uniprot_acc; //check with julien data
-        // console.log(uniprotId);
+        console.log(this.acc);
+        this.uniprotId = this.acc.uniprot_acc; //check with julien data
+        console.log(this.uniprotId);
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
         this.structures = this.proteinData.structures;
