@@ -130,7 +130,7 @@ view for protein in glyconnect
       handleResponse: function(){
         this.acc = this.proteinData.uniprots;
         console.log(this.acc);
-        this.uniprotId = this.acc.uniprot_acc; //check with julien data
+        this.uniprotId = this.acc[0]; //check with julien data
         console.log(this.uniprotId);
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
