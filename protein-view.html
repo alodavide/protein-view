@@ -55,7 +55,7 @@ view for protein in glyconnect
           </paper-card>
           <template is="dom-repeat" items="[[structures]]">
             <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png">
-              <div class="card-content">[[item.sites]]</div>
+              <div class="card-content">[[item.id.sites]]</div>
             </paper-card>
           </template>
         </div>
@@ -135,8 +135,8 @@ view for protein in glyconnect
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
         this.structures = this.proteinData.structures;
-        if (this.structure.length > 0) {
-         console.log(this.structures.sites);
+        if (this.structures.length > 0) {
+         console.log(this.structures.id.sites);
        };
         // for (i = 0; i < this.structures.length; i++) {
         //   console.log(this.structures[i][5]);
