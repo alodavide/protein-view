@@ -129,14 +129,16 @@ view for protein in glyconnect
 
       handleResponse: function(){
         this.acc = this.proteinData.uniprots;
-        console.log(this.acc);
         if (this.acc.length > 0) {
          this.uniprotId = this.acc[0].uniprot_acc;
-       };
-        console.log(this.uniprotId);
+       }else { this.uniprotId == 'unavailable'};
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
         this.structures = this.proteinData.structures;
+        for (i = 0; i < this.structures.length; i++) {
+          console.log(this.structures[i][5]);
+          console.log(this.structures[i][5]).join();
+        }
         this.lenR = this.references.length;
       }
 
