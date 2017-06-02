@@ -135,10 +135,13 @@ view for protein in glyconnect
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
         this.structures = this.proteinData.structures;
-        for (i = 0; i < this.structures.length; i++) {
-          console.log(this.structures[i][5]);
-          console.log(this.structures[i][5]).join();
-        }
+        if (this.structure.length > 0) {
+         console.log(this.structures.sites);
+       };
+        // for (i = 0; i < this.structures.length; i++) {
+        //   console.log(this.structures[i][5]);
+        //   console.log(this.structures[i][5]).join();
+        // }
         this.lenR = this.references.length;
       }
 
