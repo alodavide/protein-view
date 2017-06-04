@@ -134,7 +134,7 @@ view for protein in glyconnect
         this.acc = this.proteinData.uniprots;
         if (this.acc.length > 0) {
          this.uniprotId = this.acc[0].uniprot_acc;
-        }else { this.uniprotId == 'unavailable'};
+        }else { this.uniprotId = 'unavailable'};
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
         this.lenR = this.references.length;
@@ -154,6 +154,7 @@ view for protein in glyconnect
                   "id":   this.structures[i].id,
                   "sites": siteStr
               });
+              console.log(this.idSites.id);
           };
           console.log(this.idSites);
         };
