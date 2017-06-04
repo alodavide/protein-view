@@ -54,8 +54,8 @@ view for protein in glyconnect
             <div class="card-content">Site: N-215</div>
           </paper-card>
           <template is="dom-repeat" items="[[idSites]]">
-            <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.key]]?format=png">
-              <div class="card-content">[[item.value]]</div>
+            <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/[[item.id]]?format=png">
+              <div class="card-content">[[item.sites]]</div>
             </paper-card>
           </template>
         </div>
@@ -147,11 +147,11 @@ view for protein in glyconnect
                 console.log(totSites[i][0].site);
               };
               idSites.push({
-                  key:   this.structures[i].id,
-                  value: siteStr
+                  "id":   this.structures[i].id,
+                  "sites": siteStr
               });
+          };
           console.log(idSites);
-          }
         };
         // for (i = 0; i < this.structures.length; i++) {
         //   console.log(this.structures[i][5]);
