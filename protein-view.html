@@ -50,9 +50,9 @@ view for protein in glyconnect
           <div class="title">Structures</div>
         </paper-toolbar>
         <div class="layout wrap">
-          <paper-card image="{{imgsrc}}/2253.png" class="redCard">
+          <!-- <paper-card image="{{imgsrc}}/2253.png" class="redCard">
             <div class="card-content">Site: N-215</div>
-          </paper-card>
+          </paper-card> -->
           <template is="dom-repeat" items="{{new}}">
             <paper-card class="redCard" image="http://mendel.isb-sib.ch:8083/image/cartoon/{{item.id}}?format=png">
               <div class="card-content">{{item.sites}}</div>
@@ -151,7 +151,7 @@ view for protein in glyconnect
                 console.log(singleSite);
               };
               if (siteStr.length == 0){
-                siteStr = "Unknown"
+                siteStr = "Sites: unknown"
               };
               this.idSites.newStructures.push({
                   "id":   this.structures[i].id,
