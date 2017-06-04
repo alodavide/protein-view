@@ -145,7 +145,8 @@ view for protein in glyconnect
               var totSites = this.structures[i].sites;
               siteStr = '';
               for (y=0; y < totSites.length; y++ ) {
-                var singleSite = siteStr.concat(totSites[i].site);
+                var singleSite = totSites[i].site;
+                siteStr.concat(singleSite);
                 console.log(singleSite);
               };
               idSites.push({
