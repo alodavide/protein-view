@@ -131,18 +131,20 @@ view for protein in glyconnect
         this.acc = this.proteinData.uniprots;
         if (this.acc.length > 0) {
          this.uniprotId = this.acc[0].uniprot_acc;
-       }else { this.uniprotId == 'unavailable'};
+        }else { this.uniprotId == 'unavailable'};
         this.protName = this.proteinData.name;
         this.references = this.proteinData.references;
+        console.log(this.references);
         this.structures = this.proteinData.structures;
         if (this.structures.length > 0) {
          console.log(this.structures.id.sites);
-       };
+        };
         // for (i = 0; i < this.structures.length; i++) {
         //   console.log(this.structures[i][5]);
         //   console.log(this.structures[i][5]).join();
         // }
         this.lenR = this.references.length;
+        console.log(this.lenR);
       }
 
     });
