@@ -106,9 +106,9 @@ view for protein in glyconnect
           reflectToAttribute: true,
           observer: 'proteinChange'
         },
-        idSites: {
-          type: Array,
-        },
+        // idSites: {
+        //   type: Array,
+        // },
       },
 
       proteinChange: function(){
@@ -130,14 +130,12 @@ view for protein in glyconnect
         if (this.structures.length > 0) {
           for (i=0; i < this.structures.length; i++){
               var totSites = this.structures[i].sites;
-              console.log(totSites);
               var siteStr = new String();
               for (y=0; y < totSites.length; y++ ) {
                 var singleSite = totSites[y].site;
                 siteStr = siteStr.concat(singleSite);
                 siteStr = siteStr.concat(" ");
               };
-              console.log(siteStr);
               if (siteStr.length == 0){
                 siteStr = "Sites: unknown"
               };
@@ -146,7 +144,6 @@ view for protein in glyconnect
                   "sites": siteStr
               });
           };
-          console.log(this.idSites.newStructures);
           this.new=this.idSites.newStructures;
         };
       }
