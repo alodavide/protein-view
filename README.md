@@ -1,6 +1,6 @@
 # \<protein-view\>
 
-view for protein in glyconnect
+
 
 ## Install the Polymer-CLI
 

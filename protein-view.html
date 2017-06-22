@@ -96,25 +96,26 @@ view for protein in glyconnect
 
   </template>
   <script>
-    Polymer({
+    /** @polymerElement */
+    class ProteinView extends Polymer.Element {
+      static get is() { return 'protein-view'; }
+      static get properties() {
+        return {
+          proteinId: {
+            type: String,
+            reflectToAttribute: true,
+            observer: 'proteinChange'
+          },
+        };
+      }
 
-      is: 'protein-view',
-
-      properties: {
-        proteinId: {
-          type: String,
-          reflectToAttribute: true,
-          observer: 'proteinChange'
-        },
-      },
-
-      proteinChange: function(){
+      proteinChange(){
         var sCall = this.$.proteinCall;
         sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.proteinId;
         sCall.generateRequest();
-      },
+      }
 
-      handleResponse: function(){
+      handleResponse(){
         this.acc = this.proteinData.uniprots;
         if (this.acc.length > 0) {
          this.uniprotId = this.acc[0].uniprot_acc;
@@ -140,11 +141,12 @@ view for protein in glyconnect
                   "id":   this.structures[i].id,
                   "sites": siteStr
               });
-          };
+          }
           this.new=this.idSites.newStructures;
-        };
+        }
       }
+    }
 
-    });
+    window.customElements.define(ProteinView.is, ProteinView);
   </script>
 </dom-module>
