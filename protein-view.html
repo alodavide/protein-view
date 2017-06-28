@@ -115,9 +115,12 @@ view for protein in glyconnect
       }
 
       proteinChange(){
-        var sCall = this.$.proteinCall;
-        sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.proteinId;
-        sCall.generateRequest();
+        // Run the call only if proteinId is defined
+        if(this.proteinId !== undefined){
+          var sCall = this.$.proteinCall;
+          sCall.url = "http://mendel.isb-sib.ch:8083/api/proteins/"+this.proteinId;
+          sCall.generateRequest();
+        }
       }
 
       handleResponse(){
