@@ -3,8 +3,10 @@
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../app-layout/app-layout.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../glyconnect-sankey/glyconnect-sankey.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <!--
 `protein-view`
 view for protein in glyconnect
@@ -48,7 +50,9 @@ view for protein in glyconnect
       }
     </style>
     <div>
-      <h1>{{protName}}</h1>
+      <div class="layout horizontal center">
+        <paper-icon-button icon="icons:arrow-back" on-tap="_backButton"></paper-icon-button> <h1>{{protName}}</h1>
+      </div>
       <h3>Accession: <a href="http://uniprot.org/uniprot/{{uniprotId}}">{{uniprotId}}</a></h3>
       <paper-material elevation="2" class="flex" style="background: #eeeeee">
         <app-toolbar>
@@ -159,6 +163,10 @@ view for protein in glyconnect
 
           this.sitesStruct = this.idSites.newStructures;
         }
+      }
+
+      _backButton(){
+        window.history.back();
       }
     }
 
